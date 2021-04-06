@@ -7,8 +7,6 @@ namespace App\Framework\Controller\API\Movies;
 use App\Framework\Form\CreateMovieType;
 use App\Framework\Security\JwtAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
-use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
 use App\Shared\Movie\Application\CreateMovie\CreateMovieRequest;
 use App\Shared\Movie\Application\CreateMovie\CreateMovieService;
 use App\Shared\Movie\Infra\MovieRepositoryImpl;

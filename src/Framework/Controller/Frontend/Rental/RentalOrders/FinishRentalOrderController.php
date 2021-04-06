@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Framework\Controller\Frontend\Rental\RentalOrders;
 
-use App\Framework\Security\JwtAuthenticatedInterface;
 use App\Framework\Security\JwtFrontentdAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
 use App\Modules\Rental\RentalOrder\Application\FinishRentalOrder\FinishRentalOrderRequest;

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Shared\Movie\Application\DeleteMovie;
 
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Event\DomainEventDispatcher;
 use App\Shared\Domain\Exception\EntityNotFoundException;
 use App\Shared\Domain\Exception\ForbbidenException;
 use App\Shared\Movie\Application\DeleteMovie\DeleteMovieRequest;

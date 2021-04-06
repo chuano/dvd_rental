@@ -27,7 +27,11 @@ class ListSalesControllerTest extends WebTestCase
     /** @test */
     public function should_return_sales_list()
     {
-        $this->client->request('GET', '/api/administration/sales', ['page' => 1, 'limit' => 1, 'token' => $this->token]);
+        $this->client->request(
+            'GET',
+            '/api/administration/sales',
+            ['page' => 1, 'limit' => 1, 'token' => $this->token]
+        );
         $response = $this->client->getResponse();
         $responseContent = json_decode($response->getContent(), true);
 

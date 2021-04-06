@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Rental\User\Application\Login;
 
-use App\Shared\Domain\JwtService;
 use App\Modules\Rental\User\Domain\UserRepositoryInterface;
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\EmailAddress;
 use App\Shared\Domain\Exception\InvalidEmailException;
+use App\Shared\Domain\JwtService;
 
 class LoginService
 {
@@ -26,7 +26,7 @@ class LoginService
      */
     public function execute(LoginRequest $request): LoginResponse
     {
-        $email =  EmailAddress::create($request->getEmail());
+        $email = EmailAddress::create($request->getEmail());
         $user = $this->userRepository->getByEmail($email);
         if (!$user) {
             throw new InvalidCredentialsException();

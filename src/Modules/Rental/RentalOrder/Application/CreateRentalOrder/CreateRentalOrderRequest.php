@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Rental\RentalOrder\Application\CreateRentalOrder;
 
 use DateTimeImmutable;
-use Exception;
 
 class CreateRentalOrderRequest
 {

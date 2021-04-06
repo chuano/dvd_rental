@@ -5,14 +5,10 @@ declare(strict_types=1);
 namespace App\Framework\Controller\Frontend\Administration\Users;
 
 use App\Framework\Form\AdminLoginType;
-use App\Framework\Form\LoginType;
 use App\Modules\Administration\AdminUser\Application\Login\AdminLoginRequest;
 use App\Modules\Administration\AdminUser\Application\Login\AdminLoginService;
 use App\Modules\Administration\AdminUser\Infra\AdminUserRepositoryImpl;
-use App\Modules\Rental\User\Application\Login\LoginRequest;
-use App\Modules\Rental\User\Application\Login\LoginService;
 use App\Shared\Infra\JwtServiceImpl;
-use App\Modules\Rental\User\Infra\UserRepositoryImpl;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\RedirectResponse;

@@ -31,13 +31,19 @@ class CreateRentalOrderControlleTest extends WebTestCase
     /** @test */
     public function should_create_order()
     {
-
         $postData = [
             'movieId' => $this->getMovie()->getId()->getValue(),
             'from' => (new DateTimeImmutable())->format('Y-m-d'),
             'to' => (new DateTimeImmutable())->modify('+1 day')->format('Y-m-d'),
         ];
-        $this->client->request('POST', '/api/rental/rental_orders?token=' . $this->token, [], [], [], json_encode($postData));
+        $this->client->request(
+            'POST',
+            '/api/rental/rental_orders?token=' . $this->token,
+            [],
+            [],
+            [],
+            json_encode($postData)
+        );
         $response = $this->client->getResponse();
 
         $this->assertEquals(201, $response->getStatusCode());

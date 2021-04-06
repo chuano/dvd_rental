@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Rental\RentalOrder\Domain\Exception;
 
 use App\Shared\Domain\Exception\CustomException;
-use Exception;
 
 class InvalidRentalOrderStatusException extends CustomException
 {

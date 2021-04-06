@@ -19,8 +19,10 @@ class ListCustomersController extends AbstractController implements JwtFrontentd
     private CustomerRepositoryInterfaceImpl $customerRepository;
     private LoggedUserService $loggedUserService;
 
-    public function __construct(CustomerRepositoryInterfaceImpl $customerRepository, LoggedUserService $loggedUserService)
-    {
+    public function __construct(
+        CustomerRepositoryInterfaceImpl $customerRepository,
+        LoggedUserService $loggedUserService
+    ) {
         $this->customerRepository = $customerRepository;
         $this->loggedUserService = $loggedUserService;
     }

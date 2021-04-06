@@ -18,7 +18,7 @@ trait UserTestsTrait
         return new User(
             Uuid::create(\Ramsey\Uuid\Uuid::uuid4()->toString()),
             CompleteName::create('test', 'test', 'test'),
-            UserPostalAddress::create('address','1','city','03640', 'state'),
+            UserPostalAddress::create('address', '1', 'city', '03640', 'state'),
             EmailAddress::create('test@domain.com'),
             Password::create('12345678')
         );

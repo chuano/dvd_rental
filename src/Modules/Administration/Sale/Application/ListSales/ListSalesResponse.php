@@ -27,12 +27,15 @@ class ListSalesResponse
             'page' => $this->page,
             'limit' => $this->limit,
             'total' => $this->total,
-            'data' => array_map(fn (Sale $sale) =>  [
-                'id' => $sale->getId()->getValue(),
-                'movie' => $sale->getTitle()->getValue(),
-                'customer' => $sale->getCompleteName()->__toString(),
-                'date' => $sale->getDate()->format(DATE_ISO8601),
-            ], $this->sales),
+            'data' => array_map(
+                fn(Sale $sale) => [
+                    'id' => $sale->getId()->getValue(),
+                    'movie' => $sale->getTitle()->getValue(),
+                    'customer' => $sale->getCompleteName()->__toString(),
+                    'date' => $sale->getDate()->format(DATE_ISO8601),
+                ],
+                $this->sales
+            ),
         ];
     }
 }

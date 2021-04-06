@@ -32,7 +32,7 @@ class FinishRentalOrderControllerTest extends WebTestCase
     public function should_finish_order()
     {
         $orderId = $this->createOrder();
-        $this->client->request('PUT', '/api/rental/rental_orders/' . $orderId .'?token=' . $this->token);
+        $this->client->request('PUT', '/api/rental/rental_orders/' . $orderId . '?token=' . $this->token);
         $response = $this->client->getResponse();
         $responseContent = json_decode($response->getContent(), true);
         $this->assertEquals(200, $response->getStatusCode());
@@ -47,7 +47,14 @@ class FinishRentalOrderControllerTest extends WebTestCase
             'from' => (new DateTimeImmutable())->format(DATE_ISO8601),
             'to' => (new DateTimeImmutable())->modify('+1 day')->format(DATE_ISO8601),
         ];
-        $this->client->request('POST', '/api/rental/rental_orders?token=' . $this->token, [], [], [], json_encode($postData));
+        $this->client->request(
+            'POST',
+            '/api/rental/rental_orders?token=' . $this->token,
+            [],
+            [],
+            [],
+            json_encode($postData)
+        );
         $response = $this->client->getResponse();
         $responseContent = json_decode($response->getContent(), true);
 

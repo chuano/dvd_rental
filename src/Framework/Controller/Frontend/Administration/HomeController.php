@@ -15,6 +15,6 @@ class HomeController extends AbstractController implements JwtFrontentdAdminAuth
      */
     public function home()
     {
-        return $this->render('frontend/administration/home.html.twig',['logged' => true]);
+        return $this->render('frontend/administration/home.html.twig', ['logged' => true]);
     }
 }

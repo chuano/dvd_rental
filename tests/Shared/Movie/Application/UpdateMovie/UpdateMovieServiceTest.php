@@ -8,7 +8,6 @@ use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Event\DomainEventDispatcher;
 use App\Shared\Domain\Exception\EntityNotFoundException;
 use App\Shared\Domain\Exception\ForbbidenException;
-use App\Shared\Movie\Application\DeleteMovie\DeleteMovieService;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieRequest;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieService;
 use App\Shared\Movie\Domain\Event\MovieUpdated;

@@ -4,18 +4,12 @@ declare(strict_types=1);
 
 namespace App\Framework\Controller\API\Movies;
 
-use App\Framework\Form\CreateMovieType;
 use App\Framework\Form\UpdateMovieType;
 use App\Framework\Security\JwtAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
-use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
-use App\Shared\Movie\Application\CreateMovie\CreateMovieRequest;
-use App\Shared\Movie\Application\CreateMovie\CreateMovieService;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieRequest;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieService;
 use App\Shared\Movie\Infra\MovieRepositoryImpl;
-use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

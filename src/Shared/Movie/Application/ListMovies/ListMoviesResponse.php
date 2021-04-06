@@ -27,13 +27,16 @@ class ListMoviesResponse
             'page' => $this->page,
             'limit' => $this->limit,
             'total' => $this->total,
-            'data' => array_map(fn (Movie $movie) =>  [
-                'id' => $movie->getId()->getValue(),
-                'title' => $movie->getMetadata()->getTitle(),
-                'synopsis' => $movie->getMetadata()->getSynopsis(),
-                'year' => $movie->getMetadata()->getYear(),
-                'stock' => $movie->getStock(),
-            ], $this->movies),
+            'data' => array_map(
+                fn(Movie $movie) => [
+                    'id' => $movie->getId()->getValue(),
+                    'title' => $movie->getMetadata()->getTitle(),
+                    'synopsis' => $movie->getMetadata()->getSynopsis(),
+                    'year' => $movie->getMetadata()->getYear(),
+                    'stock' => $movie->getStock(),
+                ],
+                $this->movies
+            ),
         ];
     }
 }

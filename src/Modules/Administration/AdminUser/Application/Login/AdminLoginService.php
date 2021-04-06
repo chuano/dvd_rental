@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Modules\Administration\AdminUser\Application\Login;
 
 use App\Modules\Administration\AdminUser\Domain\AdminUserRepositoryInterface;
-use App\Shared\Domain\Exception\InvalidCredentialsException;
-use App\Shared\Domain\JwtService;
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\EmailAddress;
+use App\Shared\Domain\Exception\InvalidCredentialsException;
 use App\Shared\Domain\Exception\InvalidEmailException;
+use App\Shared\Domain\JwtService;
 
 class AdminLoginService
 {
@@ -27,7 +27,7 @@ class AdminLoginService
      */
     public function execute(AdminLoginRequest $request): AdminLoginResponse
     {
-        $email =  EmailAddress::create($request->getEmail());
+        $email = EmailAddress::create($request->getEmail());
         $user = $this->userRepository->getByEmail($email);
         if (!$user) {
             throw new InvalidCredentialsException();

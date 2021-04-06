@@ -6,13 +6,10 @@ namespace App\Framework\Controller\Frontend\Administration\Movies;
 
 use App\Framework\Security\JwtFrontentdAdminAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
-use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
 use App\Shared\Movie\Application\DeleteMovie\DeleteMovieRequest;
 use App\Shared\Movie\Application\DeleteMovie\DeleteMovieService;
 use App\Shared\Movie\Infra\MovieRepositoryImpl;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

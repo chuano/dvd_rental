@@ -6,9 +6,9 @@ namespace App\Framework\Security;
 
 use App\Modules\Administration\AdminUser\Infra\AdminUserRepositoryImpl;
 use App\Modules\Rental\User\Domain\Exception\InvalidTokenException;
-use App\Shared\Infra\JwtServiceImpl;
 use App\Modules\Rental\User\Infra\UserRepositoryImpl;
 use App\Shared\Domain\Credentials;
+use App\Shared\Infra\JwtServiceImpl;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Event\ControllerEvent;

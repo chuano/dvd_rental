@@ -43,7 +43,7 @@ class DomainEventListener
         foreach ($events as $event) {
             if (isset($this->subscribers[$event->getName()])) {
                 // Execute subscribers
-                foreach($this->subscribers[$event->getName()] as $subscriber) {
+                foreach ($this->subscribers[$event->getName()] as $subscriber) {
                     $subscriber->execute($event);
                 }
             }

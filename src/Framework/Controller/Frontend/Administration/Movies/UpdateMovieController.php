@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace App\Framework\Controller\Frontend\Administration\Movies;
 
-use App\Framework\Form\CreateMovieType;
 use App\Framework\Form\UpdateMovieType;
 use App\Framework\Security\JwtFrontentdAdminAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Uuid;
-use App\Shared\Movie\Application\CreateMovie\CreateMovieRequest;
-use App\Shared\Movie\Application\CreateMovie\CreateMovieService;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieRequest;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieService;
 use App\Shared\Movie\Infra\MovieRepositoryImpl;
@@ -48,7 +45,7 @@ class UpdateMovieController extends AbstractController implements JwtFrontentdAd
                 $updateMovieService->execute($createMovieRequest);
                 $this->addFlash('success', 'Movie updated successfully');
                 return new RedirectResponse('/admin/movies');
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 $this->addFlash('error', 'Movie not updated');
             }
         }

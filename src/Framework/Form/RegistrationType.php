@@ -17,9 +17,11 @@ class RegistrationType extends AbstractType
 {
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-           'data_class' => RegistrationRequest::class,
-       ]);
+        $resolver->setDefaults(
+            [
+                'data_class' => RegistrationRequest::class,
+            ]
+        );
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)

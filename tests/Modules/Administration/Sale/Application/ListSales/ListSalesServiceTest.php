@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace App\Tests\Modules\Administration\Sale\Application\ListSales;
 
-use App\Modules\Administration\Customer\Application\ListCustomers\ListCustomersRequest;
-use App\Modules\Administration\Customer\Application\ListCustomers\ListCustomersService;
-use App\Modules\Administration\Customer\Domain\Customer;
-use App\Modules\Administration\Customer\Domain\CustomerRepositoryInterface;
 use App\Modules\Administration\Sale\Application\ListSales\ListSalesRequest;
 use App\Modules\Administration\Sale\Application\ListSales\ListSalesService;
 use App\Modules\Administration\Sale\Domain\MovieTitle;

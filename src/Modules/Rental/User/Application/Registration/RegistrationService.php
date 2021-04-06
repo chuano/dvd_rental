@@ -52,7 +52,7 @@ class RegistrationService
             $request->getZipCode(),
             $request->getState()
         );
-        $email =  EmailAddress::create($request->getEmail());
+        $email = EmailAddress::create($request->getEmail());
         $password = Password::create($request->getPassword());
 
         return new User($uuid, $completeName, $postalAddress, $email, $password);

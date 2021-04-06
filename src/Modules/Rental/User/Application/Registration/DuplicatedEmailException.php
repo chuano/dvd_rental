@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Modules\Rental\User\Application\Registration;
 
 use App\Shared\Domain\Exception\CustomException;
-use Exception;
 
 class DuplicatedEmailException extends CustomException
 {

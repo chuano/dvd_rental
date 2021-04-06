@@ -6,7 +6,6 @@ namespace App\Modules\Administration\AdminUser\Infra;
 
 use App\Modules\Administration\AdminUser\Domain\AdminUser;
 use App\Modules\Administration\AdminUser\Domain\AdminUserRepositoryInterface;
-use App\Modules\Rental\User\Domain\User;
 use App\Shared\Domain\EmailAddress;
 use App\Shared\Domain\Uuid;
 use Doctrine\ORM\EntityManagerInterface;

@@ -6,8 +6,6 @@ namespace App\Framework\Controller\Frontend\Administration\Movies;
 
 use App\Framework\Security\JwtFrontentdAdminAuthenticatedInterface;
 use App\Framework\Security\LoggedUserService;
-use App\Modules\Rental\RentalOrder\Application\UserRentalOrders\UserRentalOrdersRequest;
-use App\Modules\Rental\RentalOrder\Application\UserRentalOrders\UserRentalOrdersService;
 use App\Modules\Rental\RentalOrder\Infra\RentalOrderRepositoryImpl;
 use App\Shared\Movie\Application\ListMovies\ListMoviesRequest;
 use App\Shared\Movie\Application\ListMovies\ListMoviesService;

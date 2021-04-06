@@ -27,10 +27,13 @@ class ListCustomersResponse
             'page' => $this->page,
             'limit' => $this->limit,
             'total' => $this->total,
-            'data' => array_map(fn (Customer $customer) =>  [
-                'id' => $customer->getId()->getValue(),
-                'name' => $customer->getCompleteName()->__toString(),
-            ], $this->customers),
+            'data' => array_map(
+                fn(Customer $customer) => [
+                    'id' => $customer->getId()->getValue(),
+                    'name' => $customer->getCompleteName()->__toString(),
+                ],
+                $this->customers
+            ),
         ];
     }
 }
