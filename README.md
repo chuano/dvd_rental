@@ -37,14 +37,3 @@ docker-compose exec php php bin/phpunit --testsuite integration
 ```bash
 docker-compose exec php php bin/phpunit --testsuite unit
 ```
-
-## Config cusromization
-- Entities mapping definition in xml
-- Moved Controllers and DataFixtures to Framework directory in order to mantain
-  clear the root directory structure.
-- Database type uuid defined in config
-- Listener for jwt
-- Inject logged user in request
-- Error handler
-- Load fixtures in tests with https://github.com/liip/LiipTestFixturesBundle
-  
