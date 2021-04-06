@@ -1,0 +1,25 @@
+{% extends 'frontend/administration/base_admin.html.twig' %}
+
+{% block body %}
+    <h2>Sales</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Movie</th>
+                <th>Customer</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sale in sales %}
+            <tr>
+                <td>{{ sale.id }}</td>
+                <td>{{ sale.movie }}</td>
+                <td>{{ sale.customer }}</td>
+                <td>{{ sale.date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

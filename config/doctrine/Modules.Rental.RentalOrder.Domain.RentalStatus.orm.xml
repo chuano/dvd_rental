@@ -1,0 +1,5 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <embeddable name="App\Modules\Rental\RentalOrder\Domain\RentalStatus">
+        <field name="status" column="status" type="string"/>
+    </embeddable>
+</doctrine-mapping>

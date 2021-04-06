@@ -1,0 +1,36 @@
+{% extends 'frontend/administration/base_admin.html.twig' %}
+
+{% block body %}
+    <h2>Sales</h2>
+    <a href="{{ path('new_movie') }}">Create movie</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Synopsis</th>
+                <th>Stock</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.title }}</td>
+                <td>{{ movie.year }}</td>
+                <td>{{ movie.synopsis }}</td>
+                <td>{{ movie.stock }}</td>
+                <td>
+                    <a href="{{ path('edit_movie', {'movieId': movie.id}) }}">Edit</a>
+                </td>
+                <td>
+                    <a href="{{ path('delete_movie', {'movieId': movie.id}) }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

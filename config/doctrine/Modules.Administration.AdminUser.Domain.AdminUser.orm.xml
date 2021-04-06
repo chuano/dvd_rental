@@ -1,0 +1,7 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Modules\Administration\AdminUser\Domain\AdminUser" table="admin_users">
+        <id name="id" type="uuid"/>
+        <embedded name="email" class="App\Shared\Domain\EmailAddress" use-column-prefix="false"/>
+        <embedded name="password" class="App\Shared\Domain\Password" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>

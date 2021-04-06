@@ -1,0 +1,10 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Modules\Administration\Sale\Domain\Sale" table="admin_sales">
+        <id name="id" type="uuid"/>
+        <field name="date" type="datetime_immutable"/>
+        <embedded name="title" class="App\Modules\Administration\Sale\Domain\MovieTitle" use-column-prefix="false"/>
+        <embedded name="completeName" class="App\Shared\Domain\CompleteName" use-column-prefix="false"/>
+        <field name="movieId" type="uuid"/>
+        <field name="customerId" type="uuid"/>
+    </entity>
+</doctrine-mapping>

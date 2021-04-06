@@ -23,9 +23,18 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller/'
+    App\Framework\Controller\:
+        resource: '../src/Framework/Controller/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Framework\Security\JwtTokenListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+    App\Framework\ErrorHandler\ErrorListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+    App\Framework\Event\DomainEventListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.finish_request, method: onKernelFinishRequest }

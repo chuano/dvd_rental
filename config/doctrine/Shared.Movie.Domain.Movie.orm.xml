@@ -1,0 +1,7 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Shared\Movie\Domain\Movie" table="movies">
+        <id name="id" type="uuid"/>
+        <embedded name="metadata" class="App\Shared\Movie\Domain\MovieMetadata" use-column-prefix="false"/>
+        <field name="stock" type="integer" />
+    </entity>
+</doctrine-mapping>

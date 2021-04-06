@@ -1,0 +1,19 @@
+{% extends 'frontend/rental/base_rental.html.twig' %}
+
+{% block body %}
+    <h2>Movies</h2>
+    {% for movie in movies %}
+        <h3>{{ movie.title }} ({{ movie.year }})</h3>
+        <p>{{ movie.synopsis }}</p>
+        <div class="movie-rental-action">
+            {% if activeOrders|filter(orderMovie => movie.id == orderMovie.movieId)|length > 0 %}
+                {% set orderId = (activeOrders|filter(orderMovie => movie.id == orderMovie.movieId)|first).id %}
+                <a href="{{ path('return', { orderId: orderId }) }}">
+                    Return this movie
+                </a>
+            {% else %}
+                <a href="{{ path('rent', { movieId: movie.id }) }}">Rent this movie</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

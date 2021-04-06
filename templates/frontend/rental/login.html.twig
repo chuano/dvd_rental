@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="center">
+        <h2>Login Form</h2>
+        {{ form(loginForm) }}
+        <hr/>
+        <a href="{{ path('register') }}">Register</a> | <a href="{{ path('admin_login') }}">Backoffice</a>
+    </div>
+{% endblock %}
+
+

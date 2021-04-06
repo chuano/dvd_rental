@@ -1,0 +1,6 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <embeddable name="App\Modules\Rental\RentalOrder\Domain\RentalInterval">
+        <field name="from" column="date_from" type="datetime_immutable"/>
+        <field name="to" column="date_to" type="datetime_immutable"/>
+    </embeddable>
+</doctrine-mapping>

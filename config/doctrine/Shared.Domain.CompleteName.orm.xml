@@ -1,0 +1,7 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <embeddable name="App\Shared\Domain\CompleteName">
+        <field name="firstName" column="first_name" type="string"/>
+        <field name="firstSurname" column="first_surname" type="string"/>
+        <field name="secondSurname" column="second_surname" type="string"/>
+    </embeddable>
+</doctrine-mapping>

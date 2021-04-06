@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block menu %}
+    <ul class="menu">
+        <li><a href="{{ path('admin_home') }}">Home</a></li>
+        <li><a href="{{ path('customer_list') }}">Customers</a></li>
+        <li><a href="{{ path('sales_list') }}">Sales</a></li>
+        <li><a href="{{ path('admin_movie_list') }}">Movies</a></li>
+        <li><a href="{{ path('admin_logout') }}">Logout</a></li>
+    </ul>
+{% endblock %}
+{% block body %}{% endblock %}

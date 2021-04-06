@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Dvd Rental!{% endblock %}</title>
+    <style>
+        html, body {
+            font-family: sans-serif;
+            color: #555;
+        }
+        header {
+            border-bottom: 1px solid #555;
+        }
+        form div {
+            margin: 5px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: left;
+        }
+
+        input {
+            width: 200px;
+        }
+        .error {
+            text-align: center;
+            border: 1px solid red;
+            background: pink;
+            padding: 5px;
+        }
+        .success {
+            text-align: center;
+            border: 1px solid green;
+            background: darkseagreen;
+            padding: 5px;
+        }
+        .center {
+            text-align: center;
+        }
+        ul.menu {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            border-bottom: 1px solid #555;
+        }
+        ul.menu li {
+            display: inline-block;
+            padding: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+        }
+    </style>
+    {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+    {% block stylesheets %}
+        {# {{ encore_entry_link_tags('app') }} #}
+    {% endblock %}
+
+    {% block javascripts %}
+        {# {{ encore_entry_script_tags('app') }} #}
+    {% endblock %}
+</head>
+<body>
+<header>
+    <h1>Rental DVD</h1>
+</header>
+{% block menu %}{% endblock %}
+{% for message in app.flashes('error') %}
+    <div class="error">
+        {{ message }}
+    </div>
+{% endfor %}
+{% for message in app.flashes('success') %}
+    <div class="success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% block body %}{% endblock %}
+</body>
+</html>

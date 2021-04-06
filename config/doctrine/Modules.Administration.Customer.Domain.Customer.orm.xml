@@ -1,0 +1,6 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <entity name="App\Modules\Administration\Customer\Domain\Customer" table="admin_customers">
+        <id name="id" type="uuid"/>
+        <embedded name="completeName" class="App\Shared\Domain\CompleteName" use-column-prefix="false"/>
+    </entity>
+</doctrine-mapping>
