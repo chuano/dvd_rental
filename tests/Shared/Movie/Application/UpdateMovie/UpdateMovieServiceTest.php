@@ -7,7 +7,7 @@ namespace App\Tests\Shared\Movie\Application\UpdateMovie;
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Event\DomainEventDispatcher;
 use App\Shared\Domain\Exception\EntityNotFoundException;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieRequest;
 use App\Shared\Movie\Application\UpdateMovie\UpdateMovieService;
 use App\Shared\Movie\Domain\Event\MovieUpdated;
@@ -38,14 +38,14 @@ class UpdateMovieServiceTest extends WebTestCase
     }
 
     /** @test */
-    public function should_throw_forbbiden_error_given_non_admin_user()
+    public function should_throw_forbidden_error_given_non_admin_user()
     {
         $repository = $this->createMock(MovieRepositoryInterface::class);
 
         $request = $this->getCorrectRequest('');
         $request->setUserProfile(Credentials::USER_PROFILE);
         $service = new UpdateMovieService($repository);
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $service->execute($request);
     }
 

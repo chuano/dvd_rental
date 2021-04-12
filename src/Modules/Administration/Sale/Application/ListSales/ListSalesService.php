@@ -6,7 +6,7 @@ namespace App\Modules\Administration\Sale\Application\ListSales;
 
 use App\Modules\Administration\Sale\Domain\SaleRepositoryInterface;
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 
 class ListSalesService
 {
@@ -20,7 +20,7 @@ class ListSalesService
     public function execute(ListSalesRequest $request): ListSalesResponse
     {
         if ($request->getUserProfile() !== Credentials::ADMIN_PROFILE) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
         $total = $this->saleRepository->count();
         $sales = $this->saleRepository->getAll($request->getPage(), $request->getLimit());

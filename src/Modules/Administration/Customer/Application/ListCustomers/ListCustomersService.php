@@ -6,7 +6,7 @@ namespace App\Modules\Administration\Customer\Application\ListCustomers;
 
 use App\Modules\Administration\Customer\Domain\CustomerRepositoryInterface;
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 
 class ListCustomersService
 {
@@ -18,12 +18,12 @@ class ListCustomersService
     }
 
     /**
-     * @throws ForbbidenException
+     * @throws ForbiddenException
      */
     public function execute(ListCustomersRequest $request): ListCustomersResponse
     {
         if ($request->getUserProfile() !== Credentials::ADMIN_PROFILE) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
         $total = $this->customerRepository->count();
         $customers = $this->customerRepository->getAll($request->getPage(), $request->getLimit());

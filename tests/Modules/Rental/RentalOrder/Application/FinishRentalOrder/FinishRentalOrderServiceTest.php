@@ -12,7 +12,7 @@ use App\Modules\Rental\RentalOrder\Domain\RentalOrderRepositoryInterface;
 use App\Modules\Rental\RentalOrder\Domain\RentalStatus;
 use App\Modules\Rental\User\Domain\User;
 use App\Shared\Domain\Event\DomainEventDispatcher;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Tests\Modules\Rental\RentalOrder\RentalOrderTestsTrait;
 use App\Tests\Modules\Rental\User\UserTestsTrait;
 use App\Tests\Shared\Movie\Application\MovieTestTrait;
@@ -42,7 +42,7 @@ class FinishRentalOrderServiceTest extends WebTestCase
     }
 
     /** @test */
-    public function sholud_throw_forbbiden_exception_given_other_user_than_rental_user()
+    public function sholud_throw_forbidden_exception_given_other_user_than_rental_user()
     {
         $user = $this->getUser();
         $other = $this->getUser();
@@ -54,7 +54,7 @@ class FinishRentalOrderServiceTest extends WebTestCase
         $request = $this->getCorrectRequest($other);
         $service = new FinishRentalOrderService($rentalOrderRepository);
 
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $service->execute($request);
     }
 

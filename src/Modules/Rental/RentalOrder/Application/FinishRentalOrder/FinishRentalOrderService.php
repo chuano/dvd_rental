@@ -6,7 +6,7 @@ namespace App\Modules\Rental\RentalOrder\Application\FinishRentalOrder;
 
 use App\Modules\Rental\RentalOrder\Domain\Exception\InvalidRentalOrderStatusException;
 use App\Modules\Rental\RentalOrder\Domain\RentalOrderRepositoryInterface;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 
 class FinishRentalOrderService
@@ -19,7 +19,7 @@ class FinishRentalOrderService
     }
 
     /**
-     * @throws ForbbidenException|InvalidRentalOrderStatusException
+     * @throws ForbiddenException|InvalidRentalOrderStatusException
      */
     public function execute(FinishRentalOrderRequest $request): FinishRentalOrderResponse
     {

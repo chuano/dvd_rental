@@ -9,7 +9,7 @@ use App\Modules\Rental\RentalOrder\Domain\Event\RentalOrderFinished;
 use App\Modules\Rental\RentalOrder\Domain\Exception\InvalidRentalOrderStatusException;
 use App\Modules\Rental\User\Domain\User;
 use App\Shared\Domain\Event\DomainEventDispatcher;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use App\Shared\Movie\Domain\Exception\InsufficientStockException;
 use App\Shared\Movie\Domain\Movie;
@@ -44,12 +44,12 @@ class RentalOrder
     }
 
     /**
-     * @throws ForbbidenException|InvalidRentalOrderStatusException
+     * @throws ForbiddenException|InvalidRentalOrderStatusException
      */
     public function finish(Uuid $userId): void
     {
         if (!$this->userId->equals($userId)) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
         if ($this->status->getStatus() === RentalStatus::DONE) {
             throw new InvalidRentalOrderStatusException();

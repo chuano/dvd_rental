@@ -6,7 +6,7 @@ namespace App\Shared\Movie\Application\DeleteMovie;
 
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Exception\EntityNotFoundException;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use App\Shared\Movie\Domain\MovieRepositoryInterface;
 
@@ -20,12 +20,12 @@ class DeleteMovieService
     }
 
     /**
-     * @throws ForbbidenException|EntityNotFoundException
+     * @throws ForbiddenException|EntityNotFoundException
      */
     public function execute(DeleteMovieRequest $request): void
     {
         if ($request->getUserProfile() !== Credentials::ADMIN_PROFILE) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
 
         $movieId = Uuid::create($request->getId());

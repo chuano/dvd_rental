@@ -6,7 +6,7 @@ namespace App\Shared\Movie\Application\UpdateMovie;
 
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Exception\EntityNotFoundException;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use App\Shared\Movie\Domain\MovieMetadata;
 use App\Shared\Movie\Domain\MovieRepositoryInterface;
@@ -21,12 +21,12 @@ class UpdateMovieService
     }
 
     /**
-     * @throws EntityNotFoundException|ForbbidenException
+     * @throws EntityNotFoundException|ForbiddenException
      */
     public function execute(UpdateMovieRequest $request): UpdateMovieResponse
     {
         if ($request->getUserProfile() !== Credentials::ADMIN_PROFILE) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
 
         $movie = $this->movieRepository->getById(Uuid::create($request->getId()));

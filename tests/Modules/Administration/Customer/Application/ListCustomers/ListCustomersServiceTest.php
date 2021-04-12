@@ -10,7 +10,7 @@ use App\Modules\Administration\Customer\Domain\Customer;
 use App\Modules\Administration\Customer\Domain\CustomerRepositoryInterface;
 use App\Shared\Domain\CompleteName;
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -37,7 +37,7 @@ class ListCustomersServiceTest extends WebTestCase
     }
 
     /** @test */
-    public function should_throw_forbbiden_exception_given_non_admin_user()
+    public function should_throw_forbidden_exception_given_non_admin_user()
     {
         $page = 1;
         $limit = 10;
@@ -46,7 +46,7 @@ class ListCustomersServiceTest extends WebTestCase
         $request = new ListCustomersRequest($page, $limit, Credentials::USER_PROFILE);
         $service = new ListCustomersService($repository);
 
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $service->execute($request);
     }
 

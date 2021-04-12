@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Shared\Movie\Application\CreateMovie;
 
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use App\Shared\Movie\Domain\Movie;
 use App\Shared\Movie\Domain\MovieMetadata;
@@ -21,12 +21,12 @@ class CreateMovieService
     }
 
     /**
-     * @throws ForbbidenException
+     * @throws ForbiddenException
      */
     public function execute(CreateMovieRequest $request): CreateMovieResponse
     {
         if ($request->getUserProfile() !== Credentials::ADMIN_PROFILE) {
-            throw new ForbbidenException();
+            throw new ForbiddenException();
         }
         $id = Uuid::create($request->getUuid());
         $metadata = new MovieMetadata($request->getTitle(), $request->getYear(), $request->getSynopsis());

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Shared\Domain\Exception;
 
-class ForbbidenException extends CustomException
+class ForbiddenException extends CustomException
 {
-    private const ERROR_MESSAGE = 'Forbbiden';
+    private const ERROR_MESSAGE = 'Forbidden';
     private const ERROR_CODE = 403;
 
     public function __construct()

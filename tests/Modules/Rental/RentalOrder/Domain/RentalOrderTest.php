@@ -10,7 +10,7 @@ use App\Modules\Rental\RentalOrder\Domain\RentalInterval;
 use App\Modules\Rental\RentalOrder\Domain\RentalOrder;
 use App\Modules\Rental\RentalOrder\Domain\RentalStatus;
 use App\Shared\Domain\Event\DomainEventDispatcher;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use App\Shared\Movie\Domain\Exception\InsufficientStockException;
 use App\Tests\Modules\Rental\RentalOrder\RentalOrderTestsTrait;
@@ -62,7 +62,7 @@ class RentalOrderTest extends TestCase
         $user = $this->getUser();
         $otherUser = $this->getUser();
         $order = $this->getOrder($user, $movie, new RentalStatus(RentalStatus::ACTIVE));
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $order->finish($otherUser->getId());
     }
 

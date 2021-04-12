@@ -11,7 +11,7 @@ use App\Modules\Administration\Sale\Domain\Sale;
 use App\Modules\Administration\Sale\Domain\SaleRepositoryInterface;
 use App\Shared\Domain\CompleteName;
 use App\Shared\Domain\Credentials;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Domain\Uuid;
 use DateTimeImmutable;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -39,7 +39,7 @@ class ListSalesServiceTest extends WebTestCase
     }
 
     /** @test */
-    public function should_throw_forbbiden_exception_given_non_admin_user()
+    public function should_throw_forbidden_exception_given_non_admin_user()
     {
         $page = 1;
         $limit = 10;
@@ -48,7 +48,7 @@ class ListSalesServiceTest extends WebTestCase
         $request = new ListSalesRequest($page, $limit, Credentials::USER_PROFILE);
         $service = new ListSalesService($repository);
 
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $service->execute($request);
     }
 

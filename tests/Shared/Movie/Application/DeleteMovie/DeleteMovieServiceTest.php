@@ -6,7 +6,7 @@ namespace App\Tests\Shared\Movie\Application\DeleteMovie;
 
 use App\Shared\Domain\Credentials;
 use App\Shared\Domain\Exception\EntityNotFoundException;
-use App\Shared\Domain\Exception\ForbbidenException;
+use App\Shared\Domain\Exception\ForbiddenException;
 use App\Shared\Movie\Application\DeleteMovie\DeleteMovieRequest;
 use App\Shared\Movie\Application\DeleteMovie\DeleteMovieService;
 use App\Shared\Movie\Domain\MovieRepositoryInterface;
@@ -31,14 +31,14 @@ class DeleteMovieServiceTest extends WebTestCase
     }
 
     /** @test */
-    public function should_throw_forbbiden_error_given_non_admin_user()
+    public function should_throw_forbidden_error_given_non_admin_user()
     {
         $repository = $this->createMock(MovieRepositoryInterface::class);
 
         $request = $this->getCorrectRequest();
         $request->setUserProfile(Credentials::USER_PROFILE);
         $service = new DeleteMovieService($repository);
-        $this->expectException(ForbbidenException::class);
+        $this->expectException(ForbiddenException::class);
         $service->execute($request);
     }
 
